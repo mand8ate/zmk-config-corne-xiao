@@ -15,7 +15,7 @@
 include:
 # Revision 1
   - board: xiao_ble
-    shield: corne_xiao_v1_left nice_view rgbled_adapter
+    shield: corne_xiao_v1_left nice_view_adapter rgbled_adapter
     snippet: studio-rpc-usb-uart
   - board: xiao_ble
     shield: corne_xiao_v1_right rgbled_adapter
