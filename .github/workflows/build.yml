@@ -4,4 +4,5 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
     with:
-	cache-name: pristine-20250206
+      cache-name: pristine-20250206
+
