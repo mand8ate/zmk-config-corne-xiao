@@ -1,19 +1,31 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
- / {
-   keymap {
-     compatible = "zmk,keymap";
+/ {
+  keymap {
+    compatible = "zmk,keymap";
 
-     layer0 {
-       bindings = <
-         &kp Q  &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I  &kp O  &kp P
-         &kp A  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K  &kp L  &kp SEMI
-         &kp Z  &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA &kp DOT &kp SLASH
+    /* =========================
+     * Layer 0: Base
+     * ========================= */
+    layer0 {
+      bindings = <
+        /* ┌──────── Left half (3×6) ────────┐ */
+        /* Col:  1        2    3    4    5    6 */
+        &kp NONE  &kp Q   &kp W   &kp E   &kp R   &kp T
+        &kp NONE  &kp A   &kp S   &kp D   &kp F   &kp G
+        &kp NONE  &kp Z   &kp X   &kp C   &kp V   &kp B
 
-                         &kp SPACE   &kp ENTER
-       >;
-     };
-   };
- };
+        /* ┌──────── Right half (3×6) ───────┐ */
+        &kp Y     &kp U   &kp I   &kp O   &kp P   &kp NONE
+        &kp H     &kp J   &kp K   &kp L   &kp SEMI &kp NONE
+        &kp N     &kp M   &kp COMMA &kp DOT &kp SLASH &kp NONE
+
+        /* ┌──────── Thumbs (3 left, 3 right) ───────┐ */
+                  &kp NONE   &kp NONE   &kp NONE
+                  &kp NONE   &kp NONE   &kp NONE
+      >;
+    };
+  };
+};
 
