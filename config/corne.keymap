@@ -1,59 +1,68 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 
 / {
   keymap {
     compatible = "zmk,keymap";
 
-    /* =========================
+    /* =====================================================
      * Layer 0: Base
-     * ========================= */
+     * ===================================================== */
     layer0 {
       bindings = <
-        &kp TAB     &kp Q  &kp W  &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I  &kp O  &kp P     &kp LBKT
-        &kp LCTRL   &kp A  &kp S  &kp D  &kp F  &kp G    &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp RBKT
-        &kp LSHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA &kp DOT &kp SLASH &kp UNDER
+        /* ---- Main matrix (3×6 left + 3×6 right = 36) ---- */
+        &kp TAB     &kp Q     &kp W     &kp E     &kp R     &kp T
+        &kp Y       &kp U     &kp I     &kp O     &kp P     &kp LBKT
 
-                    &kp LALT  &kp LGUI  &lt 1 SPACE   &kp ENTER  &kp BSPC  &kp LANG2
+        &kp LCTRL   &kp A     &kp S     &kp D     &kp F     &kp G
+        &kp H       &kp J     &kp K     &kp L     &kp SEMI  &kp RBKT
+
+        &kp LSHIFT  &kp Z     &kp X     &kp C     &kp V     &kp B
+        &kp N       &kp M     &kp COMMA &kp DOT   &kp SLASH &kp BSPC
+
+        /* ---- Thumbs (MUST be 3 left + 3 right = 6) ---- */
+                    &kp LALT      &kp LGUI      &lt 1 SPACE
+                    &kp NONE      &kp ENTER     &kp LANG2
       >;
     };
 
-    /* =========================
+    /* =====================================================
      * Layer 1: Numbers / F-Keys
-     * ========================= */
+     * ===================================================== */
     layer1 {
       bindings = <
-        &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
-        &kp N1   &kp N2   &kp N3   &kp N4   &kp N5   &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp MINUS &kp PLUS
-        &trans   &kp CAPS &kp INT_YEN &kp TILDE &kp BSLASH &kp CARET &kp AT &kp DQT &kp SQT &kp GRAVE &kp PIPE &kp EQUAL
+        &kp ESC   &kp F1   &kp F2   &kp F3   &kp F4   &kp F5
+        &kp F6    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
 
-                    &trans    &trans    &trans        &trans     &trans    &kp LANG1
+        &kp N1    &kp N2   &kp N3   &kp N4   &kp N5   &kp N6
+        &kp N7    &kp N8   &kp N9   &kp N0   &kp MINUS &kp EQUAL
+
+        &trans    &trans   &trans   &trans   &trans   &trans
+        &trans    &trans   &trans   &trans   &trans   &trans
+
+                    &trans        &trans        &trans
+                    &trans        &trans        &kp LANG1
       >;
     };
   };
 
-  /* =========================
-   * Encoder configuration
-   * ========================= */
+  /* =====================================================
+   * Encoder (right side)
+   * ===================================================== */
   encoders {
     compatible = "zmk,encoders";
 
     right_encoder {
-      /* Clockwise, Counter-Clockwise */
+      /* Rotation: CW, CCW */
       bindings = <
-        /* Layer 0 */
-        &kp PG_DN     &kp PG_UP
-        /* Layer 1 */
-        &kp C_VOL_DN  &kp C_VOL_UP
+        /* Layer 0 */ &kp PG_DN     &kp PG_UP
+        /* Layer 1 */ &kp C_VOL_DN  &kp C_VOL_UP
       >;
 
-      /* Encoder press (button) */
+      /* Press */
       press-bindings = <
-        /* Layer 0 */
-        &kp BROWSER_BACK
-        /* Layer 1 */
-        &kp BROWSER_FORWARD
+        /* Layer 0 */ &kp BROWSER_BACK
+        /* Layer 1 */ &kp BROWSER_FORWARD
       >;
     };
   };
